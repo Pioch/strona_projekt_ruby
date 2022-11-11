@@ -1,0 +1,68 @@
+#layer_blender {
+    position: absolute;
+    width: 1735px;
+    height: 800px;
+    border: 2px solid;
+}
+
+#layer_buttons {
+    position: absolute;
+    left: 1735px;
+    width: 170px;
+    height: 800px;
+    border: 2px solid;
+}
+
+#layer_buttons button {
+    margin-top: 5px;
+}
+
+#layer_buttons form {
+    margin-top: 5px;
+}
+
+.label_form {
+    width: 15px;
+}
+
+.margin_class {
+    margin-top: 5px;
+}
+
+#inputfile {
+    font-size: 13px;
+    width: 165px;
+}
+
+#login {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#layer_select {
+    position: absolute;
+    left: 475px;
+    top: 802px;
+    width: 950px;
+    height: 265px;
+    border: 2px solid;
+
+}
+
+#saved_data {
+    position: relative;
+    top: 7px;
+}
+
+#load_saved_data {
+    position: absolute;
+    left: 1427px;
+    top: 802px;
+    width: 120px;
+}
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }

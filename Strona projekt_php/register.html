@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rejestracja</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="libs/bootstrap.min.css?v=5.10" rel="stylesheet" type="text/css">
+        <link href="register.css" rel="stylesheet" type="text/css">
+        <script src="libs/popper.min.js?v=4.13" type="text/javascript"></script>
+        <script src="libs/bootstrap.min.js?v=5.10" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+            <form class="container-fluid justify-content-start">
+                <a class="btn btn-primary" href="index.html" role="button">Powrót</a>
+            </form>
+          </nav>
+        <div id="register_form">
+            <form method="POST" action="php/register.php" autocomplete="off">
+                <div class="mb-3">
+                    <label class="form-label"><b>Login:</b></label>
+                    <input type="text" class="form-control" name="login">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"><b>Hasło:</b></label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"><b>Powtórz hasło:</b></label>
+                    <input type="password" class="form-control" name="repassword">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"><b>Email:</b></label>
+                    <input type="text" class="form-control" name="email">
+                </div>
+                <input type="submit" class="btn btn-primary" value="Utwórz konto" name="rejestruj">
+            </form>
+        </div>
+    </body>
+</html>

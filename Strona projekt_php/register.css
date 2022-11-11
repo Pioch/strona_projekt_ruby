@@ -1,0 +1,22 @@
+#register_form {
+    position: absolute;
+    left: 40%;
+    top: 25%;
+    width: 234px;
+    height: 390px;
+    border: 2px solid;
+    border-radius: 4px;
+}
+
+#register_form button {
+    margin-left: 5px;
+}
+
+#register_form input {
+    width: 220px;
+    margin-left: 5px;
+}
+
+#register_form label {
+    margin-left: 5px;
+}
