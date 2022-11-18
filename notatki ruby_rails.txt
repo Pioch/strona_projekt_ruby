@@ -1,0 +1,105 @@
+
+Uruchomienie servera: rails s
+Generowanie stron rb, html.erb: rails g controller folder nazwa_pliku - tworzy w app/controllers nazwa_pliku_controller.rb i app/views/folder/nazwa_pliku.html.erb
+
+Gemfile - wszystkie podłączone gemy (biblioteki)
+
+app/models - bazy danych
+app/views - strony internetowe
+app/controller - kod do obsługi stron (pliki z kodem do obsługi stron tutaj, a nie w views) 
+app/assets/stylesheets - pliki css
+config/routes.rb - zmiana strony startowej, dodanie podstron
+app/views/layouts/application.html.erb - szablon strony
+
+wybór bazy danych w Gemfile
+
+rails route - wyświetla wszystkie ścieżki do stron
+
+//Do stworzenia nowej strony:
+1. app/views/folder/nazwa_strony.html.erb
+2. W app/controllers/folder_controller.rb dopisać def nazwa_podstrony end
+3. W app/controller/config/routes.rb dopisać get 'folder/nazwa_pliku'
+
+Pliki html.erb ładowane w application.html.erb muszą mieć na początku nazwy '_'
+
+//tworzenie bazy danych
+
+komenda rails g scaffold nazwa_tablicy kolumna1:typ_zmiennej kolumna2:typ_zmiennej ... - tworzenie tablicy do bazy danych
+komenda rails db:migrate - dodaje utworzoną tablice do bazy danych
+
+nazwa_kolumny:integer:index - kolumna z id
+
+Przy tworzeniu tablicy jak się nazwie tablicę w liczbie mnogiej zamieni ją na pojedyńczą.
+
+Odczyt komórki z tabeli @nazwa_tabeli._nazwa_kolumny
+
+//Logowanie/rejestracja
+devise - gem do tworzenia logowania/rejestracji na rubygems.org (skopiować komende z gemfile) i wkleić do pliku GemFile, później w konsoli:
+- bundle install
+- rails generate devise:install
+- do config/development.rb wkleić: config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+- do config/production.rb to samo można wkleić tylko podaje się rzeczywisty adres strony
+- musi być dodane routes.rb: root 'home#index'
+- w layouts/application.html.erb muszą być alerty
+- rails g devise:views
+- stworzenie tablicy user w bazie danych: rails generate devise user
+- rails db:migrate
+
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link text-light" %> - wylogowanie
+
+//DO działanie Devises wklić z pliku dodzialania_devices.text
+I utworzyć w app/controllers users/devise_controller.rb
+
+do wylogowania: config.sign_out_via = :delete zamienić delete na get
+
+//Połączenie tablic z bazy danych: 
+- w app/models/ - pliki od bazy tablic 
+- tbalica friends ma należeć do user: w friends.rb belongs_to :user i w user.rb has_many :friends
+
+W db/schema.rb - tablice bazy danych
+
+//Dodanie kolumny do tablicy //przed dodaniem kolumny należy usunąć wszystkie wiersze z tablicy
+- rails g migration add_user_id_to_friends user_id:integer:index -> rails g migration add_nazwa_kolumny_to_nazwa_tablicy nazwa_kolumny:typ
+- rails db:migrate
+- dopisac  :dodana_kolumna w nazwa_tablicy_controller.rb:
+def nazwa_tablicy_params
+      params.require(:nazwa_tablicy).permit(:kolumny, :dodana_kolumna)
+
+    end
+
+<%= current_user.inspect %> - wyświetla dane o zalogowanym użytkowniku
+
+//W nazwa_tablicy_controller.rb:
+ def friend_params - lista pól w formie
+ before_action :set_friend, only: %i[ show edit update destroy ] - wykonywane przed wywołaną funkcją
+ before_action :authenticate_user!, except: [:index, :show] - jeśli użytkownik nie jest uwierzytelniony to wykonaj wszystkie poza tymi w expect
+
+current_user -  aktualnie zalogowany użytkownik
+
+@friend = current_user.friends.find_by(id: params[:id]) - sprawdzenie czy id  == id alogowanego użytkownika
+before_action :correct_user, only: [:edit, :update, :destroy] - wywołanie funkcji correct_user przed funkcjami edit, udate, destroy po próbie wywołania ich
+
+//Wyświetlenie zawartości tablicy w konsoli: rails c i nastepnie models/nazwa_pliku.all
+
+//request.path == "/friends"  request.path - aktualna ścieżka
+
+//@friend = current_user.friends.build(friend_params) - utworzenie friend dla aktualnego użytkownika
+@nazwa_zmiennej - zmienna globalna
+
+//zmienna lokalna
+<% answer = 2 + 3 %>
+Lokalna: <%= answer %> 
+
+//Używanie zmiennych globalnych w innym view
+- dodać w application_controller.rb: 
+    helper_method :zmienna
+
+    def zmienna
+        @zmienna = wartość zmiennej (np Note.all)
+    end
+
+//pętla for
+<% max = 5 %>
+<% for i in 0..max %>
+    <p><%= i %></p>
+<% end %>
