@@ -1,4 +1,6 @@
 
+Nowy projekt: rails new nazwa_projektu
+
 Uruchomienie servera: rails s
 Generowanie stron rb, html.erb: rails g controller folder nazwa_pliku - tworzy w app/controllers nazwa_pliku_controller.rb i app/views/folder/nazwa_pliku.html.erb
 
