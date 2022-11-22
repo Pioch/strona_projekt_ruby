@@ -16,7 +16,6 @@
     <%= csp_meta_tag %>
 
     <%= javascript_importmap_tags %>
-    <%= stylesheet_link_tag "blender_projekt" %>
     <%= stylesheet_link_tag "bootstrap.min.css?v=5.10" %>
     <%= stylesheet_link_tag "bootstrap-dialog.min" %>
     <script src="https://unpkg.com/vue@3.2.9/dist/vue.global.js"></script> 
@@ -27,13 +26,14 @@
 
   <!--<div class="container">
   <br>
-    <% if notice %>
-      <%= render 'layouts/alerts' %> 
-    <% end %>
-
-    <br>
+    
+  <br>
     
   </div>-->
+
+  <% if notice %>
+      <%= render 'layouts/alerts' %> 
+    <% end %>
   <%= yield %>
     
   </body>
