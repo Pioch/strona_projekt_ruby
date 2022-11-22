@@ -31,9 +31,12 @@
     
   </div>-->
 
+  <%= render 'home/header' %>
+
   <% if notice %>
       <%= render 'layouts/alerts' %> 
-    <% end %>
+  <% end %>
+
   <%= yield %>
     
   </body>

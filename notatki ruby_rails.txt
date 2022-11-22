@@ -105,3 +105,14 @@ Lokalna: <%= answer %>
 <% for i in 0..max %>
     <p><%= i %></p>
 <% end %>
+
+//Ustawienie sttony logowania jako startowej
+devise_scope :user do
+    authenticated :user do
+      root 'home#index', as: :authenticated_root #jak jest zalogowany
+    end
+  
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root #jak nie jest zalogowany
+    end
+end
