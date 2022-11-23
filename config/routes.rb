@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
    get 'strona_blender/index'
-
+   
    devise_scope :user do
     authenticated :user do
       root 'home#index', as: :authenticated_root #jak jest zalogowany

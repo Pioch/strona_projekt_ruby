@@ -1,13 +1,26 @@
 <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <% if user_signed_in? %>
-            <%= link_to 'Edytuj Profil' edit_user_registration_path, class: "nav-link text-light" %>
-            <%= link_to 'Wyloguj' destroy_user_registration_path, method: :delete, class: "nav-link text-light" %>
-            <%= link_to 'Strona Blender' strona_blender_path, class: "nav-link text-light" %>
-        <% else%>
-            <%= link_to 'Zaloguj' new_user_session_path, class: "nav-link text-light" %>
-            <%= link_to 'Zarejestruj' new_user_registration_path, class: "nav-link text-light" %>
+            <li class="nav-item">
+                <%= link_to 'Edytuj Profil', edit_user_registration_path, class: "nav-link text-light" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Wyloguj', destroy_user_registration_path, method: :delete, class: "nav-link text-light" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Strona Blender', strona_blender_path, class: "nav-link text-light" %>
+            </li>
+        <% else %>
+            <li class="nav-item">
+                <%= link_to 'Zaloguj', new_user_session_path, class: "nav-link text-light" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Zarejestruj', new_user_registration_path, class: "nav-link text-light" %>
+            </li>
         <% end %>
-
+        </ul>
+    </div>
     </div>
 </nav>

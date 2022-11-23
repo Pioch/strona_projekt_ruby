@@ -116,3 +116,17 @@ devise_scope :user do
       root 'devise/sessions#new', as: :unauthenticated_root #jak nie jest zalogowany
     end
 end
+
+//Uruchomienie serwera na produkcji
+rails s -e production
+
+
+
+ <% if user_signed_in? %>
+            <%= link_to 'Edytuj Profil' edit_user_registration_path, class: "nav-link text-light" %>
+            <%= link_to 'Wyloguj' destroy_user_registration_path, method: :delete, class: "nav-link text-light" %>
+            <%= link_to 'Strona Blender' strona_blender_path, class: "nav-link text-light" %>
+        <% else%>
+            <%= link_to 'Zaloguj' new_user_session_path, class: "nav-link text-light" %>
+            <%= link_to 'Zarejestruj' new_user_registration_path, class: "nav-link text-light" %>
+        <% end %>
