@@ -1,3 +1,4 @@
+//do config/initializers/devise.rb
 
 # frozen_string_literal: true
 #! config/initializers/devise.rb
@@ -335,7 +336,9 @@ Wkleić do pliku config/initializers/devises.rb
   # config.sign_in_after_change_password = true
 end
 
-//Do wkljenia w devise_controller.rb
+
+
+//Do wkljenia w users/devise_controller.rb (utworzyć)
 
 class Users::DeviseController < ApplicationController
   class Responder < ActionController::Responder
