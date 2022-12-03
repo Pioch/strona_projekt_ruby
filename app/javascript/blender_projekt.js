@@ -56,7 +56,7 @@ $(document).ready(() => {
 });
 
 function Obiekt() {
-    var model = "3d_objects/Map.glb"
+    var model = "assets/Map.glb"
 
     Bobject = new B_objects("layer_blender", model, {
         left: -9.6, 
